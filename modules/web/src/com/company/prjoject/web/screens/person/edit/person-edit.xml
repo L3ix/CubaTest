@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://personEdit.caption"
+        messagesPack="com.company.prjoject.web.screens.person.edit">
+    <data>
+        <instance id="personDc" class="com.company.prjoject.entity.Person">
+            <view>
+                <property name="shortName"/>
+                <property name="longName"/>
+                <property name="age"/>
+                <property name="createTs"/>
+            </view>
+            <loader id="personDl">
+                <query>
+                    <![CDATA[select e from super_Person e]]>
+                </query>
+            </loader>
+        </instance>
+    </data>
+    <layout spacing="true">
+        <form id="form" dataContainer="personDc">
+            <textField property="shortName"/>
+            <textField property="longName"/>
+            <textField property="age"/>
+
+            <hbox id="editActions" spacing="true">
+                <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+                <button id="closeBtn" action="windowClose"/>
+            </hbox>
+        </form>
+    </layout>
+</window>

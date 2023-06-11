@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://personBrowse.caption"
+        focusComponent="personGrid"
+        messagesPack="com.company.prjoject.web.screens.person">
+    <data>
+        <collection id="personDc" class="com.company.prjoject.entity.Person">
+            <view systemProperties="true">
+                <property name="shortName"/>
+                <property name="longName"/>
+                <property name="age"/>
+                <property name="deleteTs"/>
+                <property name="deletedBy"/>
+            </view>
+            <loader id="personDl">
+                <query>
+                    <![CDATA[select e from super_Person e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="personRemovedDc" class="com.company.prjoject.entity.Person">
+            <view>
+                <property name="shortName"/>
+                <property name="longName"/>
+                <property name="age"/>
+                <property name="deleteTs"/>
+                <property name="deletedBy"/>
+            </view>
+            <loader id="personRemovedDl" softDeletion="false">
+                <query>
+                    <![CDATA[select e from super_Person e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <layout expand="hbox">
+        <hbox id="hbox" spacing="true" width="100%">
+            <dataGrid id="personGrid"
+                      dataContainer="personDc"
+                      width="100%"
+                      height="100%">
+                <actions>
+                    <action id="create" type="create">
+                        <properties>
+                            <property name="screenClass"
+                                      value="com.company.prjoject.web.screens.person.create.PersonCreate"/>
+                            <property name="openMode" value="DIALOG"/>
+                        </properties>
+                    </action>
+                    <action id="edit" type="edit">
+                        <properties>
+                            <property name="screenClass"
+                                      value="com.company.prjoject.web.screens.person.edit.PersonEdit"/>
+                            <property name="openMode" value="DIALOG"/>
+                        </properties>
+                    </action>
+                    <action id="remove" type="remove"/>
+                    <action id="restore" caption="Восстановить"/>
+                </actions>
+                <columns>
+                    <column id="shortName" property="shortName"/>
+                    <column id="longName" property="longName"/>
+                    <column id="age" property="age"/>
+                    <column id="deleteTs">
+                        <componentRenderer/>
+                    </column>
+                </columns>
+                <buttonsPanel>
+                    <button id="createBtn" action="personGrid.create"/>
+                    <button id="editBtn" action="personGrid.edit"/>
+                    <button id="removeBtn" action="personGrid.remove"/>
+                    <button id="restoreBtn" action="personGrid.restore"/>
+                </buttonsPanel>
+            </dataGrid>
+
+            <dataGrid id="personRemovedGrid"
+                      dataContainer="personRemovedDc"
+                      width="100%"
+                      height="100%">
+                <actions>
+                    <action id="create" type="create">
+                        <properties>
+                            <property name="screenClass"
+                                      value="com.company.prjoject.web.screens.person.create.PersonCreate"/>
+                            <property name="openMode" value="DIALOG"/>
+                        </properties>
+                    </action>
+                    <action id="edit" type="edit">
+                        <properties>
+                            <property name="screenClass"
+                                      value="com.company.prjoject.web.screens.person.edit.PersonEdit"/>
+                            <property name="openMode" value="DIALOG"/>
+                        </properties>
+                    </action>
+                    <action id="remove" type="remove"/>
+                    <action id="restore" caption="Восстановить"/>
+                </actions>
+                <columns>
+                    <column id="shortName" property="shortName"/>
+                    <column id="longName" property="longName"/>
+                    <column id="age" property="age"/>
+                    <column id="deleteTs"/>
+                </columns>
+                <buttonsPanel>
+                    <button id="createBtn2" action="personGrid.create"/>
+                    <button id="editBtn2" action="personGrid.edit"/>
+                    <button id="removeBtn2" action="personGrid.remove"/>
+                    <button id="restoreBtn2" action="personGrid.restore"/>
+                </buttonsPanel>
+            </dataGrid>
+        </hbox>
+    </layout>
+</window>
