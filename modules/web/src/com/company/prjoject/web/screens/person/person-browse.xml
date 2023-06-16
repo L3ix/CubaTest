@@ -102,10 +102,10 @@
                     <column id="deleteTs"/>
                 </columns>
                 <buttonsPanel>
-                    <button id="createBtn2" action="personGrid.create"/>
-                    <button id="editBtn2" action="personGrid.edit"/>
-                    <button id="removeBtn2" action="personGrid.remove"/>
-                    <button id="restoreBtn2" action="personGrid.restore"/>
+                    <button id="createBtn2" action="personRemovedGrid.create"/>
+                    <button id="editBtn2" action="personRemovedGrid.edit"/>
+                    <button id="removeBtn2" action="personRemovedGrid.remove"/>
+                    <button id="restoreBtn2" action="personRemovedGrid.restore"/>
                 </buttonsPanel>
             </dataGrid>
         </hbox>
